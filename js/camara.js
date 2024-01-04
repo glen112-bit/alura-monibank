@@ -33,4 +33,4 @@ btnSendPic.addEventListener('click', () => {
     console.log(respuestaConvertida)
 
     window.location.href = './abrir-conta-form-3.html'
-})
+})value
