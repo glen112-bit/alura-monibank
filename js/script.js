@@ -1,6 +1,21 @@
 import ehUmCPF from "./valida-cpf.js";
 import esMayorDeEdad from "./valida-edad.js";
 const camposDoFormulario = document.querySelectorAll("[required]")
+const formulario = document.querySelector('[data-formulario]')
+
+formulario.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    const listaRespuesta = {
+        "nome": e.target.elements["nome"].value,
+        "email": e.target.elements["email"].value,
+        "rg": e.target.elements["rg"].value,
+        "cpf": e.target.elements["cpf"].value,
+        "aniversario": e.target.elements["aniversario"].value,
+    }
+    localStorage.setItem('cadastro', JSON.stringify(listaRespuesta));
+    window.location.href = './abrir-conta-form-2.html';
+})
 
 camposDoFormulario.forEach((campo) => {
     campo.addEventListener('blur', () => verificaCampo(campo));
@@ -74,10 +89,3 @@ function verificaCampo(campo){
     // console.log(areaError.parentNode)
 }
 
-echo "# alura-monibank" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:glen112-bit/alura-monibank.git
-git push -u origin main
